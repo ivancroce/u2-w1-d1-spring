@@ -71,12 +71,18 @@ public class ConfigClass {
         return new Drink("Wine (0.75l, 13%)", 607, 7.49);
     }
 
+    // Spring will look through the beans and fill all the lists
     @Bean
+    public Menu menu(List<Pizza> pizzaList, List<Topping> toppingList, List<Drink> drinkList) {
+        return new Menu(pizzaList, toppingList, drinkList);
+    }
+
+    /*@Bean
     public Menu menu() {
         List<Pizza> pizzaList = List.of(pizzaMargherita(), pizzaHawaiian(), pizzaSalami());
         List<Topping> toppingList = List.of(toppingCheese(), toppingHam(), toppingPineapple(), toppingOnions(), toppingSalami());
         List<Drink> drinkList = List.of(drinkWater(), drinkLemonade(), drinkWine());
 
         return new Menu(pizzaList, toppingList, drinkList);
-    }
+    }*/
 }
