@@ -26,7 +26,7 @@ public class ConfigClass {
 
     @Bean(name = "onions")
     public Topping toppingOnions() {
-        return new Topping("onions", 22, 0.69);
+        return new Topping("Onions", 22, 0.69);
     }
 
     @Bean(name = "forbiddenWord")
