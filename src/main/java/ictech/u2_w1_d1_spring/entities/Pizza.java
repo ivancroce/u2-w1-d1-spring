@@ -1,26 +1,37 @@
 package ictech.u2_w1_d1_spring.entities;
 
-import lombok.Getter;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 public class Pizza extends MenuItem {
     private String name;
     private List<Topping> toppings;
 
-    // Constructor for pizza base (tomato and mozzarella)
-    public Pizza() {
-        super(1104, 4.99);
-        this.name = "Pizza Margherita";
+    public Pizza(int calories, double price, String name) {
+        super(calories, price);
+        this.name = name;
         this.toppings = new ArrayList<>();
     }
 
     public Pizza addTopping(Topping topping) {
         this.toppings.add(topping);
-        this.setCa
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Topping> getToppings() {
+        return toppings;
+    }
+
+    public void setToppings(List<Topping> toppings) {
+        this.toppings = toppings;
     }
 
     @Override
@@ -28,6 +39,8 @@ public class Pizza extends MenuItem {
         return "Pizza{" +
                 "name='" + name + '\'' +
                 ", toppings=" + toppings +
+                ", calories=" + calories +
+                ", price=" + price +
                 "} " + super.toString();
     }
 }
